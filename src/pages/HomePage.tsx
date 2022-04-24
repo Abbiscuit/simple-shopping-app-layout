@@ -1,85 +1,93 @@
+import { Card, Header } from '../components/common'
+import { Input } from '../components/ui'
+import { ImageButton } from '../features/ImageButton'
+
+const data = [
+  {
+    id: '1',
+    imgUrl:
+      'https://images.unsplash.com/photo-1650709244912-70afe4958f1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    description: 'おすすめ',
+  },
+  {
+    id: '2',
+    imgUrl:
+      'https://images.unsplash.com/photo-1648737155328-0c0012cf2f20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    description: 'SNS',
+  },
+  {
+    id: '3',
+    imgUrl:
+      'https://images.unsplash.com/photo-1650700141402-972df21ec7b0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
+    description: '印刷',
+  },
+  {
+    id: '4',
+    imgUrl:
+      'https://images.unsplash.com/photo-1650651129774-72f8250e4393?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
+    description: '動画',
+  },
+]
+
 function HomePage(): JSX.Element {
   return (
     <div className="relative flex min-h-screen flex-col bg-gray-50">
-      <div className="sticky top-0">
-        <header className="flex h-16 flex-row items-center border-b bg-white px-4">
-          <p className="flex-1">logo</p>
-        </header>
-      </div>
+      <Header />
+
       <main className="flex-1">
-        <article className="bg-white">
+        <article>
           <section>
-            <header className="bg-gradient-to-r from-blue-700 to-blue-300">
+            <div className="bg-gradient-to-r from-blue-700 to-blue-300">
               <div className="px-4 py-4">
                 <h2 className="text-center text-2xl font-semibold text-white">
                   何をデザインしますか？
                 </h2>
                 <form className="mt-4">
-                  <input
-                    className="relative w-full px-2 py-2"
-                    type="text"
-                    placeholder="あらゆるものを検索"
-                  />
+                  <Input type="text" placeholder="あらゆるものを検索" />
                 </form>
               </div>
-              <div className="flex flex-row overflow-x-scroll">
-                <div className="h-20 w-[100px] flex-shrink-0 bg-pink-200"></div>
-                <div className="h-20 w-[100px] flex-shrink-0 bg-pink-300"></div>
-                <div className="h-20 w-[100px] flex-shrink-0 bg-pink-400"></div>
-                <div className="h-20 w-[100px] flex-shrink-0 bg-pink-500"></div>
+
+              <div className="flex flex-row gap-x-2 overflow-x-scroll bg-white">
+                {data.length ? (
+                  data.map((item) => {
+                    return (
+                      <ImageButton
+                        key={item.id}
+                        imgUrl={item.imgUrl}
+                        description={item.description}
+                      />
+                    )
+                  })
+                ) : (
+                  <p>アイテムがありません</p>
+                )}
               </div>
-            </header>
-            <footer className="bg-gray-200">
-              <div className="py-4">
-                <div className="flex flex-row overflow-x-scroll">
-                  <div className="h-20 w-[100px] flex-shrink-0 bg-pink-200"></div>
-                  <div className="h-20 w-[100px] flex-shrink-0 bg-pink-300"></div>
-                  <div className="h-20 w-[100px] flex-shrink-0 bg-pink-400"></div>
-                  <div className="h-20 w-[100px] flex-shrink-0 bg-pink-500"></div>
-                </div>
-              </div>
-            </footer>
+            </div>
           </section>
         </article>
 
         <div className="space-y-20 py-4">
-          <article>
-            <div>
-              <div className="h-40 w-full bg-blue-500"></div>
-              <h3 className="mt-4 text-lg font-semibold">早速アイデアを形に</h3>
-              <p className="mt-2 leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
-                soluta minima
-              </p>
-              <button className="mt-4 bg-purple-500 px-6 py-2 text-sm text-white">
-                デザインをはじめる
-              </button>
-            </div>
-          </article>
-          <article>
-            <div className="h-40 w-full bg-blue-500"></div>
-            <h3 className="text-lg font-semibold">簡単に共同作業</h3>
-            <p className="mt-2 leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
-              soluta minima
-            </p>
-            <button className="mt-4 bg-purple-500 px-6 py-2 text-sm text-white">
-              デザインをはじめる
-            </button>
-          </article>
-          <article>
-            <div className="h-40 w-full bg-blue-500"></div>
-            <h3 className="text-lg font-semibold">
-              簡単に共同自信を持って公開する作業
-            </h3>
-            <p className="mt-2 leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit,
-              soluta minima
-            </p>
-            <button className="mt-4 bg-purple-500 px-6 py-2 text-sm text-white">
-              デザインをはじめる
-            </button>
-          </article>
+          <Card
+            as="article"
+            title="早速アイデアを形に"
+            imgUrl="https://images.unsplash.com/photo-1650476511106-4e4124365280?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxM3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
+            description="誰よりも素早く、迅速に対応することで、クライアントから着実な信用を得ることができます。"
+            buttonLabel="デザインをはじめる"
+          />
+          <Card
+            as="article"
+            title="簡単に共同自信を持って公開する作業"
+            imgUrl="https://images.unsplash.com/photo-1650724399742-a4cbeccb24de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
+            description="誰よりも素早く、迅速に対応することで、クライアントから着実な信用を得ることができます。"
+            buttonLabel="共同ではじめる"
+          />
+          <Card
+            as="article"
+            title="自信を持って公開"
+            imgUrl="https://images.unsplash.com/photo-1650667225145-acbf0ee774d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
+            description="誰よりも素早く、迅速に対応することで、クライアントから着実な信用を得ることができます。"
+            buttonLabel="デザインを公開"
+          />
         </div>
       </main>
     </div>
