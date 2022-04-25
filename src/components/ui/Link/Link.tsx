@@ -6,7 +6,11 @@ type Props = LinkProps & {
   readonly children: ReactNode
 }
 
-function Link({ to, children }: Props): JSX.Element {
-  return <ReactLink to={to}>{children}</ReactLink>
+function Link({ to, children, className }: Props): JSX.Element {
+  return (
+    <ReactLink to={to} className={className}>
+      {children}
+    </ReactLink>
+  )
 }
 export default Link
