@@ -13,7 +13,7 @@ type Props = {
 function FavoriteView({ favoriteItems, onRemoveFavorite }: Props) {
   return (
     <section className="px-4 py-4">
-      <h2 className="text-2xl font-semibold">カート内の商品</h2>
+      <h2 className="text-2xl font-semibold">お気に入り</h2>
       <div className="mt-4 space-y-4">
         {favoriteItems.length ? (
           favoriteItems.map((item) => {
