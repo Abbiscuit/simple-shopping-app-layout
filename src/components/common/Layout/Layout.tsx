@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { useAppSelector } from '../../../app/hooks'
 import Header from '../Header'
 
@@ -24,4 +24,4 @@ function Layout({ children }: LayoutProps): JSX.Element {
   )
 }
 
-export default memo(Layout)
+export default Layout
