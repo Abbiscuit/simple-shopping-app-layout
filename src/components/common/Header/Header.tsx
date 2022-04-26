@@ -1,11 +1,11 @@
 import { HeartIcon, ShoppingCartIcon } from '@heroicons/react/outline'
-import { useCart } from '../../../hooks/cart'
 import { Link } from '../../ui'
 
-type Props = {}
-function Header({}: Props) {
-  const { itemCount } = useCart()
-
+type Props = {
+  readonly cartItemCount?: number
+  readonly favoriteItemCount?: number
+}
+function Header({ cartItemCount, favoriteItemCount }: Props) {
   return (
     <header className="flex h-16 flex-row items-center justify-between border-b bg-white px-4">
       <div className="flex-1">
@@ -20,20 +20,27 @@ function Header({}: Props) {
         <Link
           to="/cart"
           className="flex flex-row items-center justify-center px-4 py-2 text-sm font-semibold"
-          aria-label={`cart items: ${itemCount}`}
+          aria-label={`cart items: ${cartItemCount ?? 0}`}
         >
           <ShoppingCartIcon width={20} />
-          {itemCount > 0 && (
+          {cartItemCount && cartItemCount > 0 && (
             <span className="ml-1 flex w-5 flex-col items-center justify-center rounded-full bg-purple-500 px-1 py-0.5 text-xs text-white">
-              {itemCount}
+              {cartItemCount}
             </span>
           )}
         </Link>
+
         <Link
           to="/favorite"
           className="flex flex-row items-center justify-center px-4 py-2 text-sm font-semibold"
+          aria-label={`favorite items: ${favoriteItemCount ?? 0}`}
         >
           <HeartIcon width={20} />
+          {favoriteItemCount && favoriteItemCount > 0 && (
+            <span className="ml-1 flex w-5 flex-col items-center justify-center rounded-full bg-purple-500 px-1 py-0.5 text-xs text-white">
+              {favoriteItemCount}
+            </span>
+          )}
         </Link>
       </div>
     </header>
