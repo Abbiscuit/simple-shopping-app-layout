@@ -1,13 +1,14 @@
+import { useAppSelector } from '../app/hooks'
 import { CartView } from '../components/cart'
 import { Layout } from '../components/common'
-import { useCart } from '../hooks/cart'
 
 type Props = {}
 const CartPage = (props: Props) => {
-  const { itemCount } = useCart()
+  const { productInCart } = useAppSelector((state) => state.product)
+
   return (
     <Layout>
-      <CartView itemCount={itemCount} />
+      <CartView cartItemCount={productInCart.length} />
     </Layout>
   )
 }

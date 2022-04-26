@@ -1,15 +1,22 @@
+import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { Layout } from '../components/common'
 import { FavoriteView } from '../components/favorite'
-import { useFavoriteItem } from '../hooks/favorite'
+import { removeFromFavorite } from '../features/product/productSlice'
 
 type Props = {}
 const FavoritePage = (props: Props) => {
-  const { favoriteItems, unFavoriteItem } = useFavoriteItem()
+  const { favoritedProducts } = useAppSelector((state) => state.product)
+  const dispatch = useAppDispatch()
+
+  const handleRemove = (id: string) => {
+    dispatch(removeFromFavorite(id))
+  }
+
   return (
     <Layout>
       <FavoriteView
-        favoriteItems={favoriteItems}
-        onRemoveFavorite={unFavoriteItem}
+        favoritedProducts={favoritedProducts}
+        onRemoveFavorite={handleRemove}
       />
     </Layout>
   )

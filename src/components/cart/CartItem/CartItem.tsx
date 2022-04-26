@@ -5,9 +5,9 @@ import {
 } from '@heroicons/react/outline'
 
 type Props = {
-  readonly itemCount: number
+  readonly cartItemCount: number
 }
-const CartItem = ({ itemCount }: Props) => {
+const CartItem = ({ cartItemCount }: Props) => {
   return (
     <article className="items-between flex flex-row space-x-4">
       <img
@@ -32,7 +32,9 @@ const CartItem = ({ itemCount }: Props) => {
               <ArrowUpIcon width={14} />
             </button>
           </div>
-          {itemCount > 0 && <span className="text-sm">数量:{itemCount}</span>}
+          {cartItemCount > 0 && (
+            <span className="text-sm">数量:{cartItemCount}</span>
+          )}
         </div>
       </div>
     </article>

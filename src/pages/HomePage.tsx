@@ -1,17 +1,29 @@
 import { Layout } from '../components/common'
 import { ProductCard, ProductView } from '../components/product'
-import { useProducts } from '../hooks/product'
+import { useProduct } from '../hooks/product'
 
 const HomePage = () => {
-  const { products } = useProducts()
+  const { products, handleAddToFavorite, isFavorite } = useProduct()
+
+  const THIS_WEEK_RECOMMENDATION = products.find((prod) => prod.id === '3')
+
   return (
     <Layout>
-      <ProductCard
-        to="/"
-        description="今週のおすすめ"
-        imgUrl="https://images.unsplash.com/photo-1650784422931-d4cf8f672a0f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
+      {THIS_WEEK_RECOMMENDATION && (
+        <ProductCard
+          id={THIS_WEEK_RECOMMENDATION.id}
+          to={THIS_WEEK_RECOMMENDATION.to}
+          description={THIS_WEEK_RECOMMENDATION.description}
+          imgUrl={THIS_WEEK_RECOMMENDATION.imgUrl}
+          onAddToFavorite={handleAddToFavorite}
+          isFavorite={isFavorite}
+        />
+      )}
+      <ProductView
+        products={products}
+        onAddToFavorite={handleAddToFavorite}
+        isFavorite={isFavorite}
       />
-      <ProductView products={products} />
     </Layout>
   )
 }

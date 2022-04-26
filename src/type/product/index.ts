@@ -3,4 +3,5 @@ export type Product = {
   readonly imgUrl: string
   readonly description: string
   readonly to: string
+  readonly price: number
 }
