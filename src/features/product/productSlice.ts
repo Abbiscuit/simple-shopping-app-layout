@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { Product } from '../../type/product'
 
 const tempData: Product[] = [
@@ -47,9 +47,31 @@ const initialState: ProductState = {
 const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {},
+  reducers: {
+    addToFavorite: (state, action: PayloadAction<string>) => {
+      const targetProd = state.products.find(
+        (prod) => prod.id === action.payload
+      )
+
+      if (targetProd === undefined) {
+        return
+      } else {
+        const isExist = state.favoritedProducts.some(
+          (prod) => prod.id === targetProd.id
+        )
+
+        if (isExist) {
+          state.favoritedProducts = state.favoritedProducts.filter(
+            (prod) => prod.id !== action.payload
+          )
+        } else {
+          state.favoritedProducts.push(targetProd)
+        }
+      }
+    },
+  },
 })
 
-export const {} = productSlice.actions
+export const { addToFavorite } = productSlice.actions
 
 export default productSlice.reducer

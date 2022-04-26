@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { memo, ReactNode } from 'react'
 import Header from '../Header'
 
 type LayoutProps = {
@@ -16,4 +16,4 @@ function Layout({ children }: LayoutProps): JSX.Element {
   )
 }
 
-export default Layout
+export default memo(Layout)
