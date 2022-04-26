@@ -23,7 +23,7 @@ function Header({ cartItemCount, favoriteItemCount }: Props) {
           aria-label={`cart items: ${cartItemCount ?? 0}`}
         >
           <ShoppingCartIcon width={20} />
-          {cartItemCount && cartItemCount > 0 && (
+          {cartItemCount! > 0 && (
             <span className="ml-1 flex w-5 flex-col items-center justify-center rounded-full bg-purple-500 px-1 py-0.5 text-xs text-white">
               {cartItemCount}
             </span>
@@ -36,7 +36,7 @@ function Header({ cartItemCount, favoriteItemCount }: Props) {
           aria-label={`favorite items: ${favoriteItemCount ?? 0}`}
         >
           <HeartIcon width={20} />
-          {favoriteItemCount && favoriteItemCount > 0 && (
+          {favoriteItemCount! > 0 && (
             <span className="ml-1 flex w-5 flex-col items-center justify-center rounded-full bg-purple-500 px-1 py-0.5 text-xs text-white">
               {favoriteItemCount}
             </span>
