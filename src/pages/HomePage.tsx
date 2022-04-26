@@ -1,24 +1,9 @@
-import { useAppDispatch, useAppSelector } from '../app/hooks'
 import { Layout } from '../components/common'
 import { ProductCard, ProductView } from '../components/product'
-import { addToFavorite } from '../features/product/productSlice'
+import { useProduct } from '../hooks/product'
 
 const HomePage = () => {
-  const { products, favoritedProducts } = useAppSelector(
-    (state) => state.product
-  )
-  const dispatch = useAppDispatch()
-
-  const handleAddToFavorite = (id: string) => {
-    if (!id) {
-      console.log('id not found')
-    }
-    dispatch(addToFavorite(id))
-  }
-
-  const isFavorite = (id: string): boolean => {
-    return favoritedProducts.some((prod) => prod.id === id)
-  }
+  const { products, handleAddToFavorite, isFavorite } = useProduct()
 
   const THIS_WEEK_RECOMMENDATION = products.find((prod) => prod.id === '3')
 

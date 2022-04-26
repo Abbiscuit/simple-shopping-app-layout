@@ -6,7 +6,7 @@ const tempData: Product[] = [
     id: '1',
     imgUrl:
       'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-    description: '最北ツアー',
+    description: '北欧スタイル',
     to: '/tour-1',
     price: 19800,
   },
@@ -14,7 +14,7 @@ const tempData: Product[] = [
     id: '2',
     imgUrl:
       'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-    description: '最北ツアー',
+    description: '中国の歴史',
     to: '/tour-2',
     price: 19800,
   },
@@ -22,7 +22,7 @@ const tempData: Product[] = [
     id: '3',
     imgUrl:
       'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-    description: '最北ツアー',
+    description: '東京フェスティバル',
     to: '/tour-3',
     price: 19800,
   },
@@ -30,7 +30,7 @@ const tempData: Product[] = [
     id: '4',
     imgUrl:
       'https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxfHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60',
-    description: '最北ツアー',
+    description: 'カーニバル in 韓国',
     to: '/tour-4',
     price: 19800,
   },
