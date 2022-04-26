@@ -71,3 +71,5 @@ const CartItem = ({ cartItemCount }: Props) => {
 }
 export default CartItem
 ```
+
+<img width="309" alt="image" src="https://user-images.githubusercontent.com/10560950/165270317-42343670-de36-4dc9-ab95-7b22c696897e.png">
