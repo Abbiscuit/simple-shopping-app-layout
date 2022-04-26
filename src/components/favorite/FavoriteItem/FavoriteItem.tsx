@@ -1,8 +1,8 @@
 import { XCircleIcon } from '@heroicons/react/outline'
-import { Favorite } from '../../../type/favorite'
+import { Product } from '../../../type/product'
 
 type Props = {
-  readonly item: Favorite
+  readonly item: Product
   readonly onRemoveFavorite: (id: string) => void
 }
 function FavoriteItem({ item, onRemoveFavorite }: Props): JSX.Element {
