@@ -6,6 +6,7 @@ type ButtonProps = ComponentPropsWithRef<'button'> & {
   readonly variant?: 'square' | 'full' | 'default'
   readonly color?: 'dark' | 'primary' | 'secondary' | 'deafult'
   readonly size?: 'default' | 'full'
+  readonly className?: string
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
@@ -14,6 +15,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     variant = 'default',
     color = 'deafult',
     size = 'md',
+    className,
     ...rest
   } = props
 
@@ -35,7 +37,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
         { ['w-full']: size === 'full' },
         { ['max-w-min']: size === 'default' },
 
-        'px-6 py-2 text-sm font-semibold shadow'
+        'px-6 py-2 text-sm font-semibold shadow',
+        className
       )}
       ref={ref}
       {...rest}
