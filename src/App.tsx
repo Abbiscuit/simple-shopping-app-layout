@@ -7,6 +7,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import FavoritePage from './pages/FavoritePage'
 import CounterPage from './pages/CounterPage'
 import ProductPage from './pages/ProductPage'
+import PlaygroundPage from './pages/PlaygroundPage'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/about" element={<AboutPage />}></Route>
       <Route path="/cart" element={<CartPage />}></Route>
       <Route path="/counter" element={<CounterPage />}></Route>
+      <Route path="/playground" element={<PlaygroundPage />}></Route>
       <Route path="*" element={<NotFoundPage />}></Route>
     </Routes>
   )

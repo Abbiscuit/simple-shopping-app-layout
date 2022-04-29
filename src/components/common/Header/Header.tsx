@@ -8,12 +8,18 @@ type Props = {
 function Header({ cartItemCount, favoriteItemCount }: Props) {
   return (
     <header className="flex h-16 flex-row items-center justify-between border-b bg-white px-4">
-      <div className="flex-1">
+      <div className="flex flex-1 flex-row gap-x-4">
         <Link
           to="/"
           className="inline-block bg-gray-100 px-4 py-2 text-sm font-semibold"
         >
           Logo
+        </Link>
+        <Link
+          to="/playground"
+          className="inline-block bg-gray-100 px-4 py-2 text-sm font-semibold"
+        >
+          Playground
         </Link>
       </div>
       <div className="flex flex-row items-center space-x-2">
